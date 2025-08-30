@@ -1,24 +1,44 @@
+//! # time-now
+//!
+//! Standard (std) library based time library. Safe and single functions to get current time as duration or seconds or milli/micro/nano seconds since unix epoch time.
+//!
+//! # Examples:
+//! ```
+//! use time_now;
+//!
+//! fn main() {
+//!     println!("time_now::now_as_secs: {:?}", time_now::now_as_secs());
+//!     println!("time_now::now_as_millis: {:?}", time_now::now_as_millis());
+//!     println!("time_now::now_as_micros: {:?}", time_now::now_as_micros());
+//!     println!("time_now::now_as_nanos: {:?}", time_now::now_as_nanos());
+//!     println!(
+//!         "time_now::duration_since_epoch: {:?}",
+//!         time_now::duration_since_epoch()
+//!     );
+//! }
+//! ```
+
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
 /// Returns [`std::time::Duration`] since [`UNIX_EPOCH`]. Uses: [`std::time`].
-/// The returned `Duration` is unwrap of `Result` returned by `SystemTime::now().duration_since(UNIX_EPOCH)`, as `UNIX_EPOCH` is _earlier than now_.
+/// The returned `Duration` is _safe_ unwrap of `Result` returned by `SystemTime::now().duration_since(UNIX_EPOCH)`. The _unwrap is safe_ because the `UNIX_EPOCH` is _earlier than now_.
 pub fn duration_since_epoch() -> Duration {
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .expect("This shouldn't happen since UNIX_EPOCH is EARLIER than NOW")
 }
 
-/// Returns the total number of whole microseconds since [`UNIX_EPOCH`]. Uses: [`std::time`].
+/// Returns the number of _whole_ microseconds since [`UNIX_EPOCH`]. Uses: [`std::time`].
 pub fn now_as_micros() -> u128 {
     duration_since_epoch().as_micros()
 }
 
-/// Returns the total number of whole milliseconds since [`UNIX_EPOCH`]. Uses: [`std::time`].
+/// Returns the number of _whole_ milliseconds since [`UNIX_EPOCH`]. Uses: [`std::time`].
 pub fn now_as_millis() -> u128 {
     duration_since_epoch().as_millis()
 }
 
-/// Returns the total number of nanoseconds since [`UNIX_EPOCH`]. Uses: [`std::time`].
+/// Returns the number of nanoseconds since [`UNIX_EPOCH`]. Uses: [`std::time`].
 pub fn now_as_nanos() -> u128 {
     duration_since_epoch().as_nanos()
 }

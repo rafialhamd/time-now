@@ -1,6 +1,6 @@
 [package]
 name = "time-now"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Rafiudeen Chozhan Kumarasamy", "<kisans@proton.me>"]
 description = "Standard (std) library based time library. Safe and single functions to get current time as duration or seconds or milli/micro/nano seconds since unix epoch time."
