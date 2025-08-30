@@ -6,7 +6,7 @@ authors = ["Rafiudeen Chozhan Kumarasamy", "<kisans@proton.me>"]
 description = "Standard (std) library based time library. Safe and single functions to get current time as duration or seconds or milli/micro/nano seconds since unix epoch time."
 repository = "https://github.com/rafialhamd/time-now"
 license = "MIT OR Apache-2.0"
-keywords = ["time", "now", "current time", "date", "duration"]
+keywords = ["time", "now", "current-time", "date", "duration"]
 categories = ["date-and-time"]
 
 [dependencies]
