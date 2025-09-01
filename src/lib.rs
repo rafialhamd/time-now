@@ -1,6 +1,10 @@
 //! # time-now
 //!
-//! Standard (std) library based time library. Safe and single functions to get current time as duration or seconds or milli/micro/nano seconds since unix epoch time.
+//! Get _current time_ as seconds or milli/micro/nano seconds, since unix epoch time, using _single function_ call.
+//!
+//! Pure Rust `std` library based. No dependencies on any other crate.
+//!
+//! Safe and Lightweight (1.8 kb).
 //!
 //! # Examples:
 //! ```
